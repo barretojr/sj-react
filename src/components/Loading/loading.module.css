@@ -10,21 +10,22 @@
   }
   
   .text {
-    margin-top: 20px;
-    letter-spacing: 0.8rem;
+    margin-top: 15px;
+    letter-spacing: 1rem;
     color: rgba(0, 0, 0, 0.719);
     position: relative;
   }
   
   .text::after {
     content: "|";
+    font-size: 2.6rem;
     position: absolute;
     right: 0;
     width: 100%;
     color: rgb(153, 58, 58);
     background: #FAFAFA;
-    -webkit-animation: typing 4s forwards, caret 1s infinite;
-            animation: typing 4s  forwards, caret 1s infinite;
+    -webkit-animation: typing 1s forwards, caret 1s infinite;
+            animation: typing 1s  forwards, caret 1s infinite;
   }
   
   @-webkit-keyframes typing {

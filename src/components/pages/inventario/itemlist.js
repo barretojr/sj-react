@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import style from './intemlist.module.css';
+import EditarItem from './itens/editaritem';
 
 
 const ItemList = () => {
@@ -49,6 +50,13 @@ const ItemList = () => {
     setCurrentPage(pageNumber);
   };
 
+  const handleEditarItem = (patrimonio) => {
+    const itemSelecionado = listagem.find((item) => item.patrimonio === patrimonio);
+    if (!itemSelecionado) {
+      return <EditarItem item={itemSelecionado} />;
+    }
+  };
+
   return (
     <section className="container-fluid mt-5">
 
@@ -80,7 +88,11 @@ const ItemList = () => {
                 <td className="col col-lg-1">{element.formattedDataCompra}</td>
                 <td className="col col-lg-2">
                   <div>
-                    <button type="button" className="btn btn-sm btn-warning">
+                    <button
+                      type="button"
+                      className="btn btn-sm btn-warning"
+                      onClick={() => handleEditarItem(element.patrimonio)}
+                    >
                       Editar
                     </button>
                   </div>

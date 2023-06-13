@@ -12,12 +12,15 @@ const App = () => {
     }, 3000);
   }, []);
 
-  
+
   return (
     <div>
       {loading ? (
         <Loading />
-      ) : (<Inventory/>
+      ) : (
+
+        <Inventory />
+        
       )}
     </div>
   );
