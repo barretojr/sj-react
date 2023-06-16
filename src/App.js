@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Loading } from './components/Loading/loading';
-import Inventory from './components/pages/inventario/inventario';
+import RoutesApp from './routes';
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -18,8 +18,7 @@ const App = () => {
       {loading ? (
         <Loading />
       ) : (
-
-        <Inventory />
+        <RoutesApp/>
         
       )}
     </div>

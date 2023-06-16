@@ -1,40 +1,36 @@
-import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import axios from 'axios';
+import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import axios from "axios";
+
+import Logo from "../../components/Logo/logo";
 
 function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const [user, setUser] = useState(null);
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post('http://localhost:3001/login/auth',
-        {
-          username,
-          password,
-        },
-        {
-          headers: { 'Content-Type': 'application/json' },
-        }
-      );
 
+    try {
+      const response = await axios.post("", {
+        method: "POST",
+        headers: { "Context-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      });
       setUser(response.data);
       console.log(user);
 
-      // Realizar chamada de API para verificar autenticação
-      const authResponse = await axios.get('http://localhost:3001/login/auth', {
-        headers: { Authorization: `Bearer ${response.data.token}` },
+      const authResponse = await axios.post("", {
+        headers: { Autorizacao: `Bearer ${response.data.token}` },
       });
 
       if (authResponse.data.authenticated) {
-        console.log('Usuário autenticado');
+        return "Authentic";
       } else {
-        console.log('Usuário não autenticado');
+        return "not Authemtic";
       }
-
     } catch (error) {
       if (error.response) {
         if (error.response.status === 401) {
@@ -43,20 +39,22 @@ function Login() {
           setError('Erro ao acessar o servidor');
         }
       } else {
-        setError('Erro de conexão');
+        setError('Erro de conexão', error);
       }
     }
   };
 
   return (
     <div>
-      <section className="vh-100 custom-section">
+      <section className="bg-success vh-100 custom-section">
         <div className="container py-5 h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-12 col-md-8 col-lg-6 col-xl-5">
               <div className="card shadow-2-strong">
                 <div className="card-body p-5 text-center">
-                  <h3 className="mb-5">Login</h3>
+                  <Logo />
+                  <h3 className="mt-3 mb-5">Faça seu Login</h3>
+
                   {error && (
                     <div className="container d-flex justify-content-center alert alert-danger">
                       <h5>{error}</h5>
@@ -106,7 +104,7 @@ function Login() {
                     </div>
 
                     <button
-                      className="btn btn-primary btn-lg btn-block"
+                      className="btn btn-success btn-lg btn-block"
                       type="submit"
                     >
                       Login

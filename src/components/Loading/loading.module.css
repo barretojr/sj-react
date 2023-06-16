@@ -1,51 +1,51 @@
-.loading {    
-    width: 100vw;
-    max-width: 85vw;
-    margin: 0 auto;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.loading {
+  width: 100vw;
+  max-width: 85vw;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  margin-top: 15px;
+  letter-spacing: 1rem;
+  color: rgba(0, 0, 0, 0.719);
+  position: relative;
+}
+
+.text::after {
+  content: "|";
+  font-size: 2.6rem;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  color: rgb(153, 58, 58);
+  background: #fafafa;
+  -webkit-animation: typing 1s forwards, caret 1s infinite;
+  animation: typing 1s forwards, caret 1s infinite;
+}
+
+@-webkit-keyframes typing {
+  to {
+    width: 0;
   }
-  
-  .text {
-    margin-top: 15px;
-    letter-spacing: 1rem;
-    color: rgba(0, 0, 0, 0.719);
-    position: relative;
+}
+@-webkit-keyframes caret {
+  50% {
+    color: transparent;
   }
-  
-  .text::after {
-    content: "|";
-    font-size: 2.6rem;
-    position: absolute;
-    right: 0;
-    width: 100%;
-    color: rgb(153, 58, 58);
-    background: #FAFAFA;
-    -webkit-animation: typing 1s forwards, caret 1s infinite;
-            animation: typing 1s  forwards, caret 1s infinite;
+}
+
+@keyframes typing {
+  to {
+    width: 0;
   }
-  
-  @-webkit-keyframes typing {
-    to {
-      width: 0;
-    }
+}
+@keyframes caret {
+  50% {
+    color: transparent;
   }
-  @-webkit-keyframes caret {
-    50% {
-      color: transparent;
-    }
-  }
-  
-  @keyframes typing {
-    to {
-      width: 0;
-    }
-  }
-  @keyframes caret {
-    50% {
-      color: transparent;
-    }
-  }
+}
